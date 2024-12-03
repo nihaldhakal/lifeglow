@@ -2,3 +2,9 @@
 <%= form_for(:user, url: destroy_user_session_path, method: :delete) do |f| %>
     <%= f.submit 'Over&Out' %>
 <% end %>
+
+<nav>
+  <ul>
+    <li><%= link_to "Money Tracker", money_trackers_path %></li>
+  </ul>
+</nav>

@@ -1,0 +1,2 @@
+module MoneyTrackersHelper
+end

@@ -1,0 +1,76 @@
+<div class="container mx-auto py-6">
+  <h2 class="text-xl font-bold mb-4">Money Tracker</h2>
+
+  <!-- Summary Section -->
+  <div class="flex justify-between mb-6">
+    <div class="bg-green-200 p-4 rounded">
+      <p class="text-sm font-medium">Total Income</p>
+      <p class="text-lg font-bold">$<%= @total_income %></p>
+    </div>
+    <div class="bg-red-200 p-4 rounded">
+      <p class="text-sm font-medium">Total Expense</p>
+      <p class="text-lg font-bold">$<%= @total_expense %></p>
+    </div>
+    <div class="bg-blue-200 p-4 rounded">
+      <p class="text-sm font-medium">Balance</p>
+      <p class="text-lg font-bold">$<%= @balance %></p>
+    </div>
+  </div>
+</div> 
+
+  <!-- Transactions Table -->
+  <table class="table-auto w-full border-collapse border border-gray-300">
+    <thead>
+      <tr>
+        <th class="border border-gray-300 px-4 py-2">Description</th>
+        <th class="border border-gray-300 px-4 py-2">Amount</th>
+        <th class="border border-gray-300 px-4 py-2">Type</th>
+        <th class="border border-gray-300 px-4 py-2">Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @money_trackers.each do |transaction| %>
+        <tr>
+          <td class="border border-gray-300 px-4 py-2"><%= transaction.description %></td>
+          <td class="border border-gray-300 px-4 py-2 text-right">$<%= transaction.amount %></td>
+          <td class="border border-gray-300 px-4 py-2 text-center"><%= transaction.transaction_type %></td>
+          <td class="border border-gray-300 px-4 py-2 text-center"><%= transaction.created_at.strftime('%Y-%m-%d') %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <!-- Add Transaction Button -->
+  <button class="bg-blue-500 text-white px-4 py-2 rounded mt-4" data-controller="modal" data-action="click->modal#open">
+    Add Transaction
+  </button>
+  <!-- Modal -->
+  <div data-controller="modal" data-modal-target="modal" class="hidden fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center">
+    <div class="bg-white p-6 rounded shadow-lg">
+      <h3 class="text-lg font-bold mb-4">Add Transaction</h3>
+      <%= form_with model: MoneyTracker.new, url: money_trackers_path, local: true do |f| %>
+        <div class="mb-4">
+          <%= f.label :amount, "Amount", class: "block text-sm font-medium" %>
+          <%= f.number_field :amount, step: 0.01, class: "w-full border border-gray-300 rounded px-3 py-2" %>
+        </div>
+        <div class="mb-4">
+          <%= f.label :description, "Description", class: "block text-sm font-medium" %>
+          <%= f.text_field :description, class: "w-full border border-gray-300 rounded px-3 py-2" %>
+        </div>
+        <div class="mb-4">
+          <%= f.label :transaction_type, "Type", class: "block text-sm font-medium" %>
+          <%= f.select :transaction_type, ["Income", "Expense"], {}, class: "w-full border border-gray-300 rounded px-3 py-2" %>
+        </div>
+        <div>
+            <%= f.label :date, "Transaction Date" %>
+            <%= f.date_field :date, class: "form-control" %>
+        </div>
+
+        <div class="flex justify-end">
+          <%= f.submit "Add", class: "bg-green-500 text-white px-4 py-2 rounded" %>
+        </div>
+      <% end %>
+      <button class="mt-4 text-red-500" data-action="click->modal#close">Close</button>
+    </div>
+  </div>
+  

@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+
+  # OAuth routes
+  get '/auth/:provider/callback', to: 'sessions#create'
+  get '/auth/failure', to: redirect('/')
+  delete '/logout', to: 'sessions#destroy', as: :logout
+
   # Dashboard Routes
   get "dashboards/index"
   get "/dashboards", to: "dashboards#index"

@@ -74,3 +74,6 @@
     </div>
   </div>
   
+  <%= form_for(:user, url: destroy_user_session_path, method: :delete) do |f| %>
+    <%= f.submit 'Over&Out' %>
+<% end %>

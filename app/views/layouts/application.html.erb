@@ -25,6 +25,13 @@
   </head>
 
   <body>
+  <% if session[:user_id] %>
+    <p>Welcome, <%= User.find(session[:user_id]).name %>!</p>
+    <%= link_to 'Logout', logout_path, method: :delete %>
+  <% else %>
+    <%= link_to 'Login with Google', '/auth/google_oauth2' %>
+  <% end %>
+
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>

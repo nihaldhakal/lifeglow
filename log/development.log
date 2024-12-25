@@ -4793,3 +4793,224 @@ Importmap skipped missing path: controllers/modal_controller.js
 Completed 200 OK in 131ms (Views: 37.1ms | ActiveRecord: 37.0ms (4 queries, 0 cached) | GC: 13.5ms)
 
 
+Started GET "/money_trackers" for ::1 at 2024-12-25 14:22:43 +0545
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Lifeglow'*/[0m
+Processing by MoneyTrackersController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1 /*action='index',application='Lifeglow',controller='money_trackers'*/[0m
+  [1m[36mMoneyTracker Sum (0.9ms)[0m  [1m[34mSELECT SUM("money_trackers"."amount") FROM "money_trackers" WHERE "money_trackers"."user_id" = 1 AND "money_trackers"."transaction_type" = 'Income' /*action='index',application='Lifeglow',controller='money_trackers'*/[0m
+  ↳ app/controllers/money_trackers_controller.rb:6:in `index'
+  [1m[36mMoneyTracker Sum (0.6ms)[0m  [1m[34mSELECT SUM("money_trackers"."amount") FROM "money_trackers" WHERE "money_trackers"."user_id" = 1 AND "money_trackers"."transaction_type" = 'Expense' /*action='index',application='Lifeglow',controller='money_trackers'*/[0m
+  ↳ app/controllers/money_trackers_controller.rb:7:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering money_trackers/index.html.erb within layouts/application
+  [1m[36mMoneyTracker Load (1.0ms)[0m  [1m[34mSELECT "money_trackers".* FROM "money_trackers" WHERE "money_trackers"."user_id" = 1 ORDER BY "money_trackers"."created_at" DESC /*action='index',application='Lifeglow',controller='money_trackers'*/[0m
+  ↳ app/views/money_trackers/index.html.erb:32
+  Rendered money_trackers/index.html.erb within layouts/application (Duration: 12.0ms | GC: 0.0ms)
+Importmap skipped missing path: controllers/modal_controller.js
+Importmap skipped missing path: controllers/modal_controller.js
+  Rendered layout layouts/application.html.erb (Duration: 35.8ms | GC: 14.1ms)
+Completed 200 OK in 137ms (Views: 38.2ms | ActiveRecord: 33.3ms (4 queries, 0 cached) | GC: 14.1ms)
+
+
+Started GET "/money_trackers" for ::1 at 2024-12-25 14:26:30 +0545
+Processing by MoneyTrackersController#index as HTML
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1 /*action='index',application='Lifeglow',controller='money_trackers'*/[0m
+  [1m[36mMoneyTracker Sum (0.8ms)[0m  [1m[34mSELECT SUM("money_trackers"."amount") FROM "money_trackers" WHERE "money_trackers"."user_id" = 1 AND "money_trackers"."transaction_type" = 'Income' /*action='index',application='Lifeglow',controller='money_trackers'*/[0m
+  ↳ app/controllers/money_trackers_controller.rb:6:in `index'
+  [1m[36mMoneyTracker Sum (0.6ms)[0m  [1m[34mSELECT SUM("money_trackers"."amount") FROM "money_trackers" WHERE "money_trackers"."user_id" = 1 AND "money_trackers"."transaction_type" = 'Expense' /*action='index',application='Lifeglow',controller='money_trackers'*/[0m
+  ↳ app/controllers/money_trackers_controller.rb:7:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering money_trackers/index.html.erb within layouts/application
+  [1m[36mMoneyTracker Load (0.5ms)[0m  [1m[34mSELECT "money_trackers".* FROM "money_trackers" WHERE "money_trackers"."user_id" = 1 ORDER BY "money_trackers"."created_at" DESC /*action='index',application='Lifeglow',controller='money_trackers'*/[0m
+  ↳ app/views/money_trackers/index.html.erb:32
+  Rendered money_trackers/index.html.erb within layouts/application (Duration: 13.2ms | GC: 0.0ms)
+Importmap skipped missing path: controllers/modal_controller.js
+Importmap skipped missing path: controllers/modal_controller.js
+  Rendered layout layouts/application.html.erb (Duration: 19.8ms | GC: 0.0ms)
+Completed 200 OK in 79ms (Views: 20.7ms | ActiveRecord: 9.7ms (4 queries, 0 cached) | GC: 0.0ms)
+
+
+Started DELETE "/signout" for ::1 at 2024-12-25 14:26:33 +0545
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "commit"=>"Over&Out"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1 /*action='destroy',application='Lifeglow',controller='sessions'*/[0m
+Redirected to http://localhost:3000/
+Completed 303 See Other in 36ms (ActiveRecord: 0.4ms (1 query, 0 cached) | GC: 0.3ms)
+
+
+Started GET "/" for ::1 at 2024-12-25 14:26:33 +0545
+Processing by DashboardsController#index as HTML
+Completed 401 Unauthorized in 5ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/signin" for ::1 at 2024-12-25 14:26:33 +0545
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering /home/nihal/.rbenv/versions/3.3.6/lib/ruby/gems/3.3.0/gems/devise-4.9.4/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /home/nihal/.rbenv/versions/3.3.6/lib/ruby/gems/3.3.0/gems/devise-4.9.4/app/views/devise/shared/_links.html.erb (Duration: 0.9ms | GC: 0.0ms)
+  Rendered /home/nihal/.rbenv/versions/3.3.6/lib/ruby/gems/3.3.0/gems/devise-4.9.4/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 6.0ms | GC: 0.1ms)
+  Rendered layout layouts/application.html.erb (Duration: 7.4ms | GC: 0.1ms)
+Completed 200 OK in 15ms (Views: 8.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.1ms)
+
+
+Started GET "/signin" for ::1 at 2024-12-25 14:26:41 +0545
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering /home/nihal/.rbenv/versions/3.3.6/lib/ruby/gems/3.3.0/gems/devise-4.9.4/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /home/nihal/.rbenv/versions/3.3.6/lib/ruby/gems/3.3.0/gems/devise-4.9.4/app/views/devise/shared/_links.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered /home/nihal/.rbenv/versions/3.3.6/lib/ruby/gems/3.3.0/gems/devise-4.9.4/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 6.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 7.0ms | GC: 0.0ms)
+Completed 200 OK in 14ms (Views: 7.5ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+[dotenv] Set [36mGOOGLE_CLIENT_ID[0m and [36mGOOGLE_CLIENT_SECRET[0m
+[dotenv] Loaded [33m.env[0m
+Started GET "/signin" for ::1 at 2024-12-25 14:39:43 +0545
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Lifeglow'*/[0m
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering /home/nihal/.rbenv/versions/3.3.6/lib/ruby/gems/3.3.0/gems/devise-4.9.4/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /home/nihal/.rbenv/versions/3.3.6/lib/ruby/gems/3.3.0/gems/devise-4.9.4/app/views/devise/shared/_links.html.erb (Duration: 3.7ms | GC: 0.0ms)
+  Rendered /home/nihal/.rbenv/versions/3.3.6/lib/ruby/gems/3.3.0/gems/devise-4.9.4/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 9.7ms | GC: 0.0ms)
+Importmap skipped missing path: controllers/modal_controller.js
+Importmap skipped missing path: controllers/modal_controller.js
+  Rendered layout layouts/application.html.erb (Duration: 29.5ms | GC: 12.4ms)
+Completed 200 OK in 87ms (Views: 34.6ms | ActiveRecord: 8.4ms (0 queries, 0 cached) | GC: 12.4ms)
+
+
+Started GET "/auth/google_oauth2" for ::1 at 2024-12-25 14:39:45 +0545
+  
+ActionController::RoutingError (No route matches [GET] "/auth/google_oauth2"):
+  
+Started GET "/favicon.ico" for ::1 at 2024-12-25 14:39:46 +0545
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/favicon.ico" for ::1 at 2024-12-25 14:39:46 +0545
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/favicon.ico" for ::1 at 2024-12-25 14:39:46 +0545
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+[dotenv] Set [36mGOOGLE_CLIENT_ID[0m and [36mGOOGLE_CLIENT_SECRET[0m
+[dotenv] Loaded [33m.env[0m
+Started GET "/signin" for ::1 at 2024-12-25 14:41:20 +0545
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Lifeglow'*/[0m
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering /home/nihal/.rbenv/versions/3.3.6/lib/ruby/gems/3.3.0/gems/devise-4.9.4/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /home/nihal/.rbenv/versions/3.3.6/lib/ruby/gems/3.3.0/gems/devise-4.9.4/app/views/devise/shared/_links.html.erb (Duration: 3.5ms | GC: 0.0ms)
+  Rendered /home/nihal/.rbenv/versions/3.3.6/lib/ruby/gems/3.3.0/gems/devise-4.9.4/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 10.2ms | GC: 0.0ms)
+Importmap skipped missing path: controllers/modal_controller.js
+Importmap skipped missing path: controllers/modal_controller.js
+  Rendered layout layouts/application.html.erb (Duration: 17.3ms | GC: 0.0ms)
+Completed 200 OK in 82ms (Views: 22.8ms | ActiveRecord: 11.8ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/auth/google_oauth2" for ::1 at 2024-12-25 14:41:22 +0545
+  
+ActionController::RoutingError (No route matches [GET] "/auth/google_oauth2"):
+  
+Started GET "/favicon.ico" for ::1 at 2024-12-25 14:41:22 +0545
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/favicon.ico" for ::1 at 2024-12-25 14:41:22 +0545
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/favicon.ico" for ::1 at 2024-12-25 14:41:22 +0545
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+[dotenv] Set [36mGOOGLE_CLIENT_ID[0m and [36mGOOGLE_CLIENT_SECRET[0m
+[dotenv] Loaded [33m.env[0m
+[dotenv] Set [36mGOOGLE_CLIENT_ID[0m and [36mGOOGLE_CLIENT_SECRET[0m
+[dotenv] Loaded [33m.env[0m
+Started GET "/auth/google_oauth2" for ::1 at 2024-12-25 14:45:48 +0545
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Lifeglow'*/[0m
+  
+ActionController::RoutingError (No route matches [GET] "/auth/google_oauth2"):
+  
+Started GET "/favicon.ico" for ::1 at 2024-12-25 14:45:48 +0545
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/favicon.ico" for ::1 at 2024-12-25 14:45:48 +0545
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+[dotenv] Set [36mGOOGLE_CLIENT_ID[0m and [36mGOOGLE_CLIENT_SECRET[0m
+[dotenv] Loaded [33m.env[0m
+Started POST "/signin" for ::1 at 2024-12-25 14:47:26 +0545
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"[FILTERED]", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'b@gmail.com' ORDER BY "users"."id" ASC LIMIT 1 /*action='create',application='Lifeglow',controller='sessions'*/[0m
+Completed 401 Unauthorized in 56ms (ActiveRecord: 11.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"[FILTERED]", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering layout layouts/application.html.erb
+  Rendering /home/nihal/.rbenv/versions/3.3.6/lib/ruby/gems/3.3.0/gems/devise-4.9.4/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /home/nihal/.rbenv/versions/3.3.6/lib/ruby/gems/3.3.0/gems/devise-4.9.4/app/views/devise/shared/_links.html.erb (Duration: 1.9ms | GC: 0.0ms)
+  Rendered /home/nihal/.rbenv/versions/3.3.6/lib/ruby/gems/3.3.0/gems/devise-4.9.4/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 8.2ms | GC: 0.0ms)
+Importmap skipped missing path: controllers/modal_controller.js
+Importmap skipped missing path: controllers/modal_controller.js
+  Rendered layout layouts/application.html.erb (Duration: 22.9ms | GC: 5.4ms)
+Completed 200 OK in 227ms (Views: 25.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 5.4ms)
+
+
+Started POST "/signin" for ::1 at 2024-12-25 14:47:31 +0545
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"[FILTERED]", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'b@gmail.com' ORDER BY "users"."id" ASC LIMIT 1 /*action='create',application='Lifeglow',controller='sessions'*/[0m
+Completed 401 Unauthorized in 11ms (ActiveRecord: 0.6ms (1 query, 0 cached) | GC: 0.7ms)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"[FILTERED]", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering layout layouts/application.html.erb
+  Rendering /home/nihal/.rbenv/versions/3.3.6/lib/ruby/gems/3.3.0/gems/devise-4.9.4/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /home/nihal/.rbenv/versions/3.3.6/lib/ruby/gems/3.3.0/gems/devise-4.9.4/app/views/devise/shared/_links.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered /home/nihal/.rbenv/versions/3.3.6/lib/ruby/gems/3.3.0/gems/devise-4.9.4/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 7.0ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 7.8ms | GC: 0.0ms)
+Completed 200 OK in 212ms (Views: 8.5ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/signin" for ::1 at 2024-12-25 14:47:44 +0545
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"[FILTERED]", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'b@lifeglow.com' ORDER BY "users"."id" ASC LIMIT 1 /*action='create',application='Lifeglow',controller='sessions'*/[0m
+Redirected to http://localhost:3000/
+Completed 303 See Other in 202ms (ActiveRecord: 0.7ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for ::1 at 2024-12-25 14:47:44 +0545
+Processing by DashboardsController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1 /*action='index',application='Lifeglow',controller='dashboards'*/[0m
+  Rendering layout layouts/application.html.erb
+  Rendering dashboards/index.html.erb within layouts/application
+  Rendered dashboards/index.html.erb within layouts/application (Duration: 1.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 2.8ms | GC: 0.0ms)
+Completed 200 OK in 15ms (Views: 3.7ms | ActiveRecord: 0.8ms (1 query, 0 cached) | GC: 0.2ms)
+
+
+Started GET "/money_trackers" for ::1 at 2024-12-25 14:47:49 +0545
+Processing by MoneyTrackersController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1 /*action='index',application='Lifeglow',controller='money_trackers'*/[0m
+  [1m[36mMoneyTracker Sum (1.5ms)[0m  [1m[34mSELECT SUM("money_trackers"."amount") FROM "money_trackers" WHERE "money_trackers"."user_id" = 1 AND "money_trackers"."transaction_type" = 'Income' /*action='index',application='Lifeglow',controller='money_trackers'*/[0m
+  ↳ app/controllers/money_trackers_controller.rb:6:in `index'
+  [1m[36mMoneyTracker Sum (0.5ms)[0m  [1m[34mSELECT SUM("money_trackers"."amount") FROM "money_trackers" WHERE "money_trackers"."user_id" = 1 AND "money_trackers"."transaction_type" = 'Expense' /*action='index',application='Lifeglow',controller='money_trackers'*/[0m
+  ↳ app/controllers/money_trackers_controller.rb:7:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering money_trackers/index.html.erb within layouts/application
+  [1m[36mMoneyTracker Load (0.8ms)[0m  [1m[34mSELECT "money_trackers".* FROM "money_trackers" WHERE "money_trackers"."user_id" = 1 ORDER BY "money_trackers"."created_at" DESC /*action='index',application='Lifeglow',controller='money_trackers'*/[0m
+  ↳ app/views/money_trackers/index.html.erb:32
+  Rendered money_trackers/index.html.erb within layouts/application (Duration: 13.5ms | GC: 0.9ms)
+  Rendered layout layouts/application.html.erb (Duration: 15.1ms | GC: 0.9ms)
+Completed 200 OK in 58ms (Views: 15.8ms | ActiveRecord: 4.4ms (4 queries, 0 cached) | GC: 1.1ms)
+
+
